@@ -1,5 +1,5 @@
 import React from "react";
-import vector1 from '../assets/vector1.png'
+ 
 
 const Banner = ({ inProgress = 0, resolved = 0 }) => {
   return (
