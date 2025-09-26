@@ -1,0 +1,87 @@
+import React, { useState } from "react";
+import Navbar from "./components/Navbar";
+import Banner from "./components/Banner";
+import TicketList from "./components/TicketList";
+import TaskStatus from "./components/TaskStatus";
+import Footer from "./components/Footer";
+import ticketsData from "./data/tickets";
+import { ToastContainer, toast } from "react-toastify";
+
+const App = () => {
+  // Original tickets
+  const [tickets, setTickets] = useState(ticketsData);
+
+  // In-progress tasks (task status area)
+  const [inProgress, setInProgress] = useState([]);
+
+  // Resolved tasks
+  const [resolved, setResolved] = useState([]);
+
+  // Counts derived
+  const inProgressCount = inProgress.length;
+  const resolvedCount = resolved.length;
+
+  // when user clicks a ticket card to move to Task Status (In-progress)
+  const handleAddToTask = (ticket) => {
+    // prevent duplicate
+    if (inProgress.find((t) => t.id === ticket.id) || resolved.find((t)=>t.id===ticket.id)) {
+      toast.info("Ticket already in Task Status or Resolved");
+      return;
+    }
+    setInProgress((prev) => [...prev, ticket]);
+    toast.success(`Added to Task Status: "${ticket.title}"`);
+  };
+
+  // when complete button clicked in Task Status
+  const handleComplete = (ticketId) => {
+    const task = inProgress.find((t) => t.id === ticketId);
+    if (!task) return;
+    // remove from inProgress
+    setInProgress((prev) => prev.filter((t) => t.id !== ticketId));
+    // add to resolved
+    setResolved((prev) => [task, ...prev]);
+    // remove from main tickets list
+    setTickets((prev) => prev.filter((t) => t.id !== ticketId));
+    toast.success(`Marked Resolved: "${task.title}"`);
+  };
+
+  // Optional: remove from Task Status without resolving (not required but handy)
+  const handleRemoveFromTask = (ticketId) => {
+    const task = inProgress.find((t) => t.id === ticketId);
+    if (!task) return;
+    setInProgress((prev) => prev.filter((t) => t.id !== ticketId));
+    toast.info(`Removed from Task Status: "${task.title}"`);
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-100 text-gray-800">
+      <Navbar />
+      <div className="max-w-[1200px] mx-auto px-4">
+        <Banner inProgress={inProgressCount} resolved={resolvedCount} />
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8">
+          {/* Left: tickets list (span 2 columns on lg) */}
+          <div className="lg:col-span-2">
+            <h3 className="text-lg font-semibold mb-4">Customer Tickets</h3>
+            <TicketList tickets={tickets} onAddToTask={handleAddToTask} />
+          </div>
+
+          {/* Right: task status */}
+          <div className="lg:col-span-1">
+            <TaskStatus
+              inProgress={inProgress}
+              resolved={resolved}
+              onComplete={handleComplete}
+              onRemove={handleRemoveFromTask}
+            />
+          </div>
+        </div>
+      </div>
+
+      <Footer />
+
+      <ToastContainer position="top-right" autoClose={2000} />
+    </div>
+  );
+};
+
+export default App;
