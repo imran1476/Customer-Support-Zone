@@ -26,7 +26,7 @@ const tickets = [
       "Customer cannot download their January invoice from the billing section.",
     customer: "Michael Brown",
     priority: "MEDIUM PRIORITY",
-    status: "open",
+    status: "In-Progress",
     createdAt: "1/17/2024",
   },
   {
@@ -56,7 +56,7 @@ const tickets = [
       "Customer requested a refund two weeks ago but has not received the amount yet.",
     customer: "Sophia Taylor",
     priority: "MEDIUM PRIORITY",
-    status: "in-progress",
+    status: "In-Progress",
     createdAt: "1/20/2024",
   },
   {
@@ -96,7 +96,7 @@ const tickets = [
       "Customer placed an order but didn't receive a confirmation email even though payment succeeded.",
     customer: "Isabella Garcia",
     priority: "MEDIUM PRIORITY",
-    status: "open",
+    status: "In-Progress",
     createdAt: "1/24/2024",
   },
 ];
