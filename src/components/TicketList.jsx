@@ -7,9 +7,9 @@ const TicketList = ({ tickets, onAddToTask }) => {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      {tickets.map((t) => (
-        <TicketCard key={t.id} ticket={t} onAddToTask={onAddToTask} />
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+   {tickets.map((t) => (
+  <TicketCard key={t.id} ticket={t} onAddToTask={onAddToTask} />
       ))}
     </div>
   );

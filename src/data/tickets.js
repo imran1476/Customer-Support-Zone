@@ -87,7 +87,7 @@ const tickets = [
     customer: "Liam Thomas",
     priority: "MEDIUM PRIORITY",
     status: "open",
-    createdAt: "1/17/2024",
+    createdAt: "1/23/2024",
   },
   {
     id: "#1010",
@@ -98,6 +98,56 @@ const tickets = [
     priority: "MEDIUM PRIORITY",
     status: "In-Progress",
     createdAt: "1/24/2024",
+  },
+  {
+    id: "#1011",
+    title: "Website Loading Slowly",
+    description:
+      "Customer reports the dashboard takes more than 30 seconds to load after login.",
+    customer: "William Clark",
+    priority: "MEDIUM PRIORITY",
+    status: "open",
+    createdAt: "1/25/2024",
+  },
+  {
+    id: "#1012",
+    title: "Email Notifications Not Working",
+    description:
+      "Customer stopped receiving system notification emails for ticket updates.",
+    customer: "Ava Rodriguez",
+    priority: "LOW PRIORITY",
+    status: "open",
+    createdAt: "1/26/2024",
+  },
+  {
+    id: "#1013",
+    title: "Feature Request - Dark Mode",
+    description:
+      "Customer requested a dark mode option for better usability at night.",
+    customer: "Ethan Hall",
+    priority: "LOW PRIORITY",
+    status: "open",
+    createdAt: "1/27/2024",
+  },
+  {
+    id: "#1014",
+    title: "Duplicate Transactions",
+    description:
+      "Customer was charged twice for the same subscription plan.",
+    customer: "Mia Allen",
+    priority: "HIGH PRIORITY",
+    status: "In-Progress",
+    createdAt: "1/28/2024",
+  },
+  {
+    id: "#1015",
+    title: "Account Locked",
+    description:
+      "Customer account was locked after multiple failed login attempts, needs manual unlock.",
+    customer: "Noah Wright",
+    priority: "HIGH PRIORITY",
+    status: "open",
+    createdAt: "1/29/2024",
   },
 ];
 
