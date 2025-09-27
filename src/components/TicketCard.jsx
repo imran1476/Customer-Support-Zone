@@ -1,4 +1,5 @@
 import React from "react";
+import { FaCalendarAlt } from "react-icons/fa";
  
 const TicketCard = ({ ticket, onAddToTask }) => {
   return (
@@ -11,7 +12,7 @@ const TicketCard = ({ ticket, onAddToTask }) => {
 <div>  <h4 className="font-semibold text-md">{ticket.title}</h4>
 </div>
         
- <div> <span className={`px-3 text-center py-1 rounded-xl text-xs font-medium ${ticket.status.includes("open") ? "bg-[#b9f8cf]  text-green-600" : ticket.status.includes("In-Progress") ? "bg-[#f8f3b9] text-yellow-700" : "bg-green-100 text-green-700"}`}>
+ <div> <span className={`px-3 text-center py-1 rounded-xl text-md font-medium ${ticket.status.includes("open") ? "bg-[#b9f8cf]  text-green-600" : ticket.status.includes("In-Progress") ? "bg-[#f8f3b9] text-yellow-700" : "bg-green-100 text-green-700"}`}>
               {ticket.status} </span></div>
               </div>
    <div>
@@ -19,19 +20,19 @@ const TicketCard = ({ ticket, onAddToTask }) => {
    </div>
          
 
-      <div className="flex justify-between items-center mt-4">
+      <div className="flex justify-between items-center   mt-4">
             
          <div className="flex justify-between items-center gap-3">
   <div className="text-xs text-gray-500">{ticket.id}</div>
  <div className=" ">
-  <span className={`px-2 py-1 rounded text-xs font-medium ${ticket.priority.includes("HIGH") ? "bg-red-100 text-red-600" : ticket.priority.includes("MEDIUM") ? "bg-yellow-100 text-yellow-700" : "bg-green-100 text-green-700"}`}>
+  <span className={`px-2 py-1 rounded text-xs font-medium ${ticket.priority.includes("HIGH") ? " text-red-600" : ticket.priority.includes("MEDIUM") ? " text-yellow-700" : " text-green-700"}`}>
               {ticket.priority}  </span>
          
         </div>
          </div>
  <div className="flex justify-between items-center gap-3">
    <div className="text-sm text-gray-600">{ticket.customer}</div>
-<div className="text-sm text-gray-500">{ticket.createdAt}</div>
+<div className="text-sm text-gray-500 flex items-center gap-1"> <FaCalendarAlt className="text-center"/> {ticket.createdAt}</div>
  </div>
 </div>
  </article>
